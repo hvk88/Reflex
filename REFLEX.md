@@ -5,28 +5,31 @@ Aquí te muestro cómo crear un componente completo con video y agregarlo a la r
 ```python
 import reflex as rx
 
-# Definimos los estilos para el video
+# Definimos los estilos optimizados para el video
 video_style = {
-    "border": "thick double #32a1ce",
-    "border_radius": "10px",
-    "box_shadow": "12px 12px 2px 1px rgba(0, 0, 255, .2)",
-    "margin": "10px",
-    "padding": "10px"
+    "border": "2px solid #32a1ce",  # Un borde más limpio
+    "borderRadius": "8px",  # Bordes redondeados suaves
+    "boxShadow": "4px 4px 8px rgba(50, 161, 206, 0.5)",  # Sombra más sutil
+    "margin": "20px auto",  # Centrar y espaciado automático
+    "maxWidth": "100%",  # Responsivo para pantallas más pequeñas
+    "padding": "5px",  # Espaciado interno leve
 }
 
-def index() -> rx.Component:
+def video() -> rx.Component:
     return rx.container(
         rx.video(
-            url="https://www.youtube.com/embed/9bZkp7q19f0",
-            width="400px",
-            height="auto",
-            style=video_style
-        )
+            "iframe",
+            src="https://www.youtube.com/embed/HvFm4GcBlGs",
+            width="560",
+            height="315",
+            style=video_style,
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+            frameborder="0",
+            allowfullscreen=True,
+        ),
+        style={"textAlign": "center"},  # Centrar el contenedor
     )
 
-# Agregamos la página a la app
-app = rx.App()
-app.add_page(index)
 ```
  [(1)](https://reflex.dev/docs/library/media/video/) ,  [(2)](https://reflex.dev/docs/getting-started/chatapp-tutorial/) 
 
